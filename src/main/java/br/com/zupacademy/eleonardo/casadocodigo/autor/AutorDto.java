@@ -11,7 +11,6 @@ public class AutorDto {
 	private LocalDateTime dataCriacao;
 
 	public AutorDto(Long id, String nome, String email, String descricao, LocalDateTime dataCriacao) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
