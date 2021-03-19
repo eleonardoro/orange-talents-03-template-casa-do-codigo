@@ -1,4 +1,4 @@
-package br.com.zupacademy.eleonardo.casadocodigo.config.validacao;
+package br.com.zupacademy.eleonardo.casadocodigo.validacoes;
 
 public class ErroDeFormularioDto {
 

@@ -1,10 +1,8 @@
-package br.com.zupacademy.eleonardo.casadocodigo.controller.dto;
+package br.com.zupacademy.eleonardo.casadocodigo.autor;
 
 import java.time.LocalDateTime;
 
 import org.springframework.data.domain.Page;
-
-import br.com.zupacademy.eleonardo.casadocodigo.modelo.Autor;
 
 public class AutorDto {
 

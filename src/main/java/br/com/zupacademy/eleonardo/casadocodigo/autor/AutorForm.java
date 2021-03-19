@@ -1,10 +1,8 @@
-package br.com.zupacademy.eleonardo.casadocodigo.controller.form;
+package br.com.zupacademy.eleonardo.casadocodigo.autor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
-import br.com.zupacademy.eleonardo.casadocodigo.modelo.Autor;
 
 public class AutorForm {
 
