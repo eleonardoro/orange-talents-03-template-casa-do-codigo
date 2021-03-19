@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.zupacademy.eleonardo.casadocodigo.validacoes.ProibeNomeDuplicadoCategoriaValidator;
+import br.com.zupacademy.eleonardo.casadocodigo.validacoes.ProibeCampoDuplicadoValidator;
 
 @RestController
 @RequestMapping("/categorias")
 public class CategoriaController {
 
 	private CategoriaRepository categoriaRepository;
-	private ProibeNomeDuplicadoCategoriaValidator proibeNomeDuplicadoCategoriaValidator;
+	private ProibeCampoDuplicadoValidator proibeCampoDuplicadoValidator;
 
 	@Autowired
 	public CategoriaController(CategoriaRepository categoriaRepository,
-			ProibeNomeDuplicadoCategoriaValidator proibeNomeDuplicadoCategoriaValidator) {
+			ProibeCampoDuplicadoValidator proibeCampoDuplicadoValidator) {
 		this.categoriaRepository = categoriaRepository;
-		this.proibeNomeDuplicadoCategoriaValidator = proibeNomeDuplicadoCategoriaValidator;
+		this.proibeCampoDuplicadoValidator = proibeCampoDuplicadoValidator;
 	}
 
 	@InitBinder
 	public void init(WebDataBinder binder) {
-		binder.addValidators(proibeNomeDuplicadoCategoriaValidator);
+		binder.addValidators(proibeCampoDuplicadoValidator);
 	}
 
 	@PostMapping

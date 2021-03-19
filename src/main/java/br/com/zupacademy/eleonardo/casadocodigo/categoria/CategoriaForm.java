@@ -5,7 +5,9 @@ import javax.validation.constraints.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CategoriaForm {
+import br.com.zupacademy.eleonardo.casadocodigo.validacoes.FormValidavel;
+
+public class CategoriaForm extends FormValidavel{
 
 	@NotEmpty
 	private String nome;
@@ -19,7 +21,8 @@ public class CategoriaForm {
 		return new Categoria(nome);
 	}
 
-	public String getNome() {
+	@Override
+	public String getValorValidavel() {
 		return nome;
 	}
 }
