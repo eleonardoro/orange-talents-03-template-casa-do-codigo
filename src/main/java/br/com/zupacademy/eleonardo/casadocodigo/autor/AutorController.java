@@ -26,7 +26,7 @@ public class AutorController {
 		Autor autor = form.converter();
 		autorRepository.save(autor);
 
-		return ResponseEntity.ok().body(new AutorDto(autor));
+		return ResponseEntity.ok().body(autor.converterToDTO());
 	}
 
 }

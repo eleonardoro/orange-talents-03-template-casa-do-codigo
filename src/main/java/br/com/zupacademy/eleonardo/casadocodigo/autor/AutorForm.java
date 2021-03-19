@@ -17,19 +17,15 @@ public class AutorForm {
 	@Size(max = 400)
 	private String descricao;
 
+	public AutorForm(@NotEmpty String nome, @NotEmpty @Email String email,
+			@NotEmpty @Size(max = 400) String descricao) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.descricao = descricao;
+	}
+
 	public Autor converter() {
 		return new Autor(nome, email, descricao);
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 }
