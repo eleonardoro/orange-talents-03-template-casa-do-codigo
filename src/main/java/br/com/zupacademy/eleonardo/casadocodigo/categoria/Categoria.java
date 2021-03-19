@@ -26,8 +26,8 @@ public class Categoria {
 		this.nome = nome;
 	}
 
-	public CategoriaDto converterToDTO() {
-		return new CategoriaDto(id, nome);
+	public CategoriaResponse converterToDTO() {
+		return new CategoriaResponse(id, nome);
 	}
 
 	@Override

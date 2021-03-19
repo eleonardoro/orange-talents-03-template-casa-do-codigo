@@ -34,7 +34,7 @@ public class AutorController {
 	}
 
 	@PostMapping
-	public ResponseEntity<AutorDto> cadastrar(@RequestBody @Valid AutorForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<AutorResponse> cadastrar(@RequestBody @Valid AutorRequest form, UriComponentsBuilder uriBuilder) {
 		Autor autor = form.converter();
 		autorRepository.save(autor);
 

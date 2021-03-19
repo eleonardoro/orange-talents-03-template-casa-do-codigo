@@ -2,7 +2,7 @@ package br.com.zupacademy.eleonardo.casadocodigo.autor;
 
 import java.time.LocalDateTime;
 
-public class AutorDto {
+public class AutorResponse {
 
 	private Long id;
 	private String nome;
@@ -10,7 +10,7 @@ public class AutorDto {
 	private String descricao;
 	private LocalDateTime dataCriacao;
 
-	public AutorDto(Long id, String nome, String email, String descricao, LocalDateTime dataCriacao) {
+	public AutorResponse(Long id, String nome, String email, String descricao, LocalDateTime dataCriacao) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;

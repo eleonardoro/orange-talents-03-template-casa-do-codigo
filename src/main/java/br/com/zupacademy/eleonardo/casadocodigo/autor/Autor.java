@@ -42,8 +42,8 @@ public class Autor {
 		this.descricao = descricao;
 	}
 
-	public AutorDto converterToDTO() {
-		return new AutorDto(id, nome, email, descricao, dataCriacao);
+	public AutorResponse converterToDTO() {
+		return new AutorResponse(id, nome, email, descricao, dataCriacao);
 	}
 
 	@Override

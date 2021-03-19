@@ -7,13 +7,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.com.zupacademy.eleonardo.casadocodigo.validacoes.FormValidavel;
 
-public class CategoriaForm extends FormValidavel{
+public class CategoriaRequest extends FormValidavel{
 
 	@NotEmpty
 	private String nome;
 
 	@JsonCreator
-	public CategoriaForm(@NotEmpty @JsonProperty("nome") String nome) {
+	public CategoriaRequest(@NotEmpty @JsonProperty("nome") String nome) {
 		this.nome = nome;
 	}
 

@@ -34,7 +34,7 @@ public class CategoriaController {
 	}
 
 	@PostMapping
-	public ResponseEntity<CategoriaDto> cadastrar(@RequestBody @Valid CategoriaForm form,
+	public ResponseEntity<CategoriaResponse> cadastrar(@RequestBody @Valid CategoriaRequest form,
 			UriComponentsBuilder uriBuilder) {
 		Categoria categoria = form.converter();
 		categoriaRepository.save(categoria);

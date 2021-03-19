@@ -1,11 +1,11 @@
 package br.com.zupacademy.eleonardo.casadocodigo.categoria;
 
-public class CategoriaDto {
+public class CategoriaResponse {
 
 	private Long id;
 	private String nome;
 
-	public CategoriaDto(Long id, String nome) {
+	public CategoriaResponse(Long id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
