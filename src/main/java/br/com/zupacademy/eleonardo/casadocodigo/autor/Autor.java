@@ -37,7 +37,6 @@ public class Autor {
 	}
 
 	public Autor(@NotEmpty String nome, @NotEmpty @Email String email, @NotEmpty @Size(max = 400) String descricao) {
-		super();
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
