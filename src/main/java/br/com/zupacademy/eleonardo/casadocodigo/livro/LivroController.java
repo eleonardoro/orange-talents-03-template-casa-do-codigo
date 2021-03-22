@@ -46,12 +46,12 @@ public class LivroController {
 
 	@GetMapping
 	public ResponseEntity<List<LivroSimpleResponse>> listaTodosLivros() {
-		List<LivroSimpleResponse> livrosResponse = new ArrayList<LivroSimpleResponse>();
+		List<LivroSimpleResponse> livrosResponse = new ArrayList<>();
 
 		Iterable<Livro> livros = livroRepository.findAll();
 
 		livros.forEach(livro -> {
-			livrosResponse.add(new LivroSimpleResponse(livro.getId(), livro.getTitulo()));
+			livrosResponse.add(livro.parseLivroSimpleResponse());
 		});
 
 		return ResponseEntity.ok(livrosResponse);
