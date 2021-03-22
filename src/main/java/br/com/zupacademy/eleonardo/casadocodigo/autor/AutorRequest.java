@@ -4,9 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import br.com.zupacademy.eleonardo.casadocodigo.validacoes.FormValidavel;
-
-public class AutorRequest extends FormValidavel{
+public class AutorRequest {
 
 	@NotEmpty
 	private String nome;
@@ -30,8 +28,7 @@ public class AutorRequest extends FormValidavel{
 		return new Autor(nome, email, descricao);
 	}
 
-	@Override
-	public String getValorValidavel() {
+	public String getEmail() {
 		return email;
 	}
 }

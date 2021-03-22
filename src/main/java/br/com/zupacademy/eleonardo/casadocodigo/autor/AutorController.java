@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.zupacademy.eleonardo.casadocodigo.validacoes.ProibeCampoDuplicadoValidator;
+import br.com.zupacademy.eleonardo.casadocodigo.validacoes.ProibeEmailDuplicadoAutorValidator;
 
 @RestController
 @RequestMapping("/autores")
 public class AutorController {
 
 	private AutorRepository autorRepository;
-	private ProibeCampoDuplicadoValidator proibeCampoDuplicadoValidator;
+	private ProibeEmailDuplicadoAutorValidator proibeEmailDuplicadoAutorValidator;
 
 	@Autowired
 	public AutorController(AutorRepository autorRepository,
-			ProibeCampoDuplicadoValidator proibeCampoDuplicadoValidator) {
+			ProibeEmailDuplicadoAutorValidator proibeEmailDuplicadoAutorValidator) {
 		this.autorRepository = autorRepository;
-		this.proibeCampoDuplicadoValidator = proibeCampoDuplicadoValidator;
+		this.proibeEmailDuplicadoAutorValidator = proibeEmailDuplicadoAutorValidator;
 	}
 
 	@InitBinder
 	public void init(WebDataBinder binder) {
-		binder.addValidators(proibeCampoDuplicadoValidator);
+		binder.addValidators(proibeEmailDuplicadoAutorValidator);
 	}
 
 	@PostMapping
