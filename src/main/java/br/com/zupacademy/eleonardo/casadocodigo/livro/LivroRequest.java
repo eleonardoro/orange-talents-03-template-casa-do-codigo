@@ -2,13 +2,9 @@ package br.com.zupacademy.eleonardo.casadocodigo.livro;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -20,7 +16,6 @@ import br.com.zupacademy.eleonardo.casadocodigo.autor.Autor;
 import br.com.zupacademy.eleonardo.casadocodigo.autor.AutorRepository;
 import br.com.zupacademy.eleonardo.casadocodigo.categoria.Categoria;
 import br.com.zupacademy.eleonardo.casadocodigo.categoria.CategoriaRepository;
-import br.com.zupacademy.eleonardo.casadocodigo.categoria.CategoriaRequest;
 import br.com.zupacademy.eleonardo.casadocodigo.validacoes.UniqueValue;
 
 public class LivroRequest {
@@ -74,10 +69,7 @@ public class LivroRequest {
 		this.idAutor = idAutor;
 	}
 
-	@SuppressWarnings("deprecation")
-	public Livro converter(CategoriaRepository categoriaRepository,
-			AutorRepository autorRepository) {
-		List<Categoria> listCategorias = new ArrayList<Categoria>();
+	public Livro converter(CategoriaRepository categoriaRepository, AutorRepository autorRepository) {
 		Categoria categoria = categoriaRepository.findById(idCategoria).get();
 
 		System.out.println(categoria.toString());

@@ -68,6 +68,14 @@ public class Livro {
 		return new LivroResponse(id, titulo, isbn, dataPublicacao);
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
