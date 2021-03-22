@@ -5,9 +5,12 @@ import javax.validation.constraints.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.zupacademy.eleonardo.casadocodigo.validacoes.UniqueValue;
+
 public class CategoriaRequest {
 
 	@NotEmpty
+	@UniqueValue(domainClass = Categoria.class, fieldName = "nome")
 	private String nome;
 
 	@JsonCreator
