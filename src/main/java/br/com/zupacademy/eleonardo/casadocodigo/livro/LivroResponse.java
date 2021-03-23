@@ -9,12 +9,11 @@ public class LivroResponse {
 	private String isbn;
 	private LocalDate dataPublicacao;
 
-	public LivroResponse(Long id, String titulo, String isbn, LocalDate dataPublicacao) {
-		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.isbn = isbn;
-		this.dataPublicacao = dataPublicacao;
+	public LivroResponse(Livro livro) {
+		this.id = livro.getId();
+		this.titulo = livro.getTitulo();
+		this.isbn = livro.getIsbn();
+		this.dataPublicacao = livro.getDataPublicacao();
 	}
 
 	public Long getId() {
