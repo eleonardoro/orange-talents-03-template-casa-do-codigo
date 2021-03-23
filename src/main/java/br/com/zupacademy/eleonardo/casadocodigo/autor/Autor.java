@@ -7,9 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Autor {
@@ -18,25 +15,23 @@ public class Autor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotEmpty
+	@Column(nullable = false)
 	private String nome;
 
-	@NotEmpty
-	@Email
-	@Column(unique = true)
+	@Column(nullable = false, unique = true)
 	private String email;
 
-	@NotEmpty
-	@Size(max = 400)
+	@Column(nullable = false, length = 400)
 	private String descricao;
 
+	@Column(updatable = false)
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 
 	@Deprecated
 	public Autor() {
 	}
 
-	public Autor(@NotEmpty String nome, @NotEmpty @Email String email, @NotEmpty @Size(max = 400) String descricao) {
+	public Autor(String nome, String email, String descricao) {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
