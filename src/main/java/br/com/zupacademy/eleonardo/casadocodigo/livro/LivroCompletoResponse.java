@@ -19,19 +19,17 @@ public class LivroCompletoResponse {
 	private Categoria categoria;
 	private Autor autor;
 
-	public LivroCompletoResponse(Long id, String titulo, String resumo, String sumario, BigDecimal preco,
-			Integer paginas, String isbn, LocalDate dataPublicacao, Categoria categoria, Autor autor) {
-		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.resumo = resumo;
-		this.sumario = sumario;
-		this.preco = preco;
-		this.paginas = paginas;
-		this.isbn = isbn;
-		this.dataPublicacao = dataPublicacao;
-		this.categoria = categoria;
-		this.autor = autor;
+	public LivroCompletoResponse(Livro livro) {
+		this.id = livro.getId();
+		this.titulo = livro.getTitulo();
+		this.resumo = livro.getResumo();
+		this.sumario = livro.getSumario();
+		this.preco = livro.getPreco();
+		this.paginas = livro.getPaginas();
+		this.isbn = livro.getIsbn();
+		this.dataPublicacao = livro.getDataPublicacao();
+		this.categoria = livro.getCategoria();
+		this.autor = livro.getAutor();
 	}
 
 	public Long getId() {

@@ -69,6 +69,46 @@ public class Livro {
 	public LivroResponse converterParaLivroResponse() {
 		return new LivroResponse(id, titulo, isbn, dataPublicacao);
 	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getResumo() {
+		return resumo;
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public Integer getPaginas() {
+		return paginas;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public LocalDate getDataPublicacao() {
+		return dataPublicacao;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
 
 	@Override
 	public int hashCode() {
@@ -105,13 +145,5 @@ public class Livro {
 		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
-	}
-
-	public LivroSimplesResponse converterParaLivroSimplesResponse() {
-		return new LivroSimplesResponse(id, titulo);
-	}
-
-	public LivroCompletoResponse converterParaLivroCompletoResponse() {
-		return new LivroCompletoResponse(id, titulo, resumo, sumario, preco, paginas, isbn, dataPublicacao, categoria, autor);
 	}
 }

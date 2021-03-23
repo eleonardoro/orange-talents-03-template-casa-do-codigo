@@ -53,7 +53,7 @@ public class LivroController {
 		Iterable<Livro> livros = livroRepository.findAll();
 
 		livros.forEach(livro -> {
-			livrosResponse.add(livro.converterParaLivroSimplesResponse());
+			livrosResponse.add(new LivroSimplesResponse(livro));
 		});
 
 		return ResponseEntity.ok(livrosResponse);
@@ -69,6 +69,6 @@ public class LivroController {
 		if (!livro.isPresent())
 			return ResponseEntity.notFound().build();
 
-		return ResponseEntity.ok().body(livro.get().converterParaLivroCompletoResponse());
+		return ResponseEntity.ok().body(new LivroCompletoResponse(livro.get()));
 	}
 }

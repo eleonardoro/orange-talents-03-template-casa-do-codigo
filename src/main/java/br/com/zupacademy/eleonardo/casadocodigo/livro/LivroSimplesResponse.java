@@ -10,6 +10,11 @@ public class LivroSimplesResponse {
 		this.titulo = titulo;
 	}
 
+	public LivroSimplesResponse(Livro livro) {
+		this.id = livro.getId();
+		this.titulo = livro.getTitulo();
+	}
+
 	public Long getId() {
 		return id;
 	}
