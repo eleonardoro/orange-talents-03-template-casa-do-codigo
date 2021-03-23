@@ -16,12 +16,12 @@ import br.com.zupacademy.eleonardo.casadocodigo.autor.Autor;
 import br.com.zupacademy.eleonardo.casadocodigo.autor.AutorRepository;
 import br.com.zupacademy.eleonardo.casadocodigo.categoria.Categoria;
 import br.com.zupacademy.eleonardo.casadocodigo.categoria.CategoriaRepository;
-import br.com.zupacademy.eleonardo.casadocodigo.validacoes.UniqueValue;
+import br.com.zupacademy.eleonardo.casadocodigo.validacoes.ValorUnico;
 
 public class LivroRequest {
 
 	@NotEmpty
-	@UniqueValue(domainClass = Livro.class, fieldName = "titulo")
+	@ValorUnico(domainClass = Livro.class, fieldName = "titulo")
 	private String titulo;
 
 	@NotEmpty
@@ -40,7 +40,7 @@ public class LivroRequest {
 	private Integer paginas;
 
 	@NotEmpty
-	@UniqueValue(domainClass = Livro.class, fieldName = "isbn")
+	@ValorUnico(domainClass = Livro.class, fieldName = "isbn")
 	private String isbn;
 
 	@NotNull

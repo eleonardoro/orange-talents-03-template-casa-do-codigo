@@ -5,12 +5,12 @@ import javax.validation.constraints.NotNull;
 
 import br.com.zupacademy.eleonardo.casadocodigo.pais.Pais;
 import br.com.zupacademy.eleonardo.casadocodigo.pais.PaisRepository;
-import br.com.zupacademy.eleonardo.casadocodigo.validacoes.UniqueValue;
+import br.com.zupacademy.eleonardo.casadocodigo.validacoes.ValorUnico;
 
 public class EstadoRequest {
 
 	@NotEmpty
-	@UniqueValue(domainClass = Estado.class, fieldName = "nome")
+	@ValorUnico(domainClass = Estado.class, fieldName = "nome")
 	private String nome;
 
 	@NotNull

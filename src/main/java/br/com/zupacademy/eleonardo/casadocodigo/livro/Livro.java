@@ -49,12 +49,12 @@ public class Livro {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Autor autor;
 
+	@Deprecated
 	public Livro() {
 	}
 
 	public Livro(String titulo, String resumo, String sumario, BigDecimal preco, Integer paginas, String isbn,
 			LocalDate dataPublicacao, Categoria categorias, Autor autores) {
-		super();
 		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;

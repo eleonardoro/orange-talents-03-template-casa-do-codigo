@@ -22,6 +22,10 @@ public class Estado {
 	@ManyToOne
 	private Pais pais;
 
+	@Deprecated
+	public Estado() {
+	}
+
 	public Estado(String nome, Pais pais) {
 		super();
 		this.nome = nome;

@@ -4,7 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import br.com.zupacademy.eleonardo.casadocodigo.validacoes.UniqueValue;
+import br.com.zupacademy.eleonardo.casadocodigo.validacoes.ValorUnico;
 
 public class AutorRequest {
 
@@ -13,7 +13,7 @@ public class AutorRequest {
 
 	@NotEmpty
 	@Email
-	@UniqueValue(domainClass = Autor.class, fieldName = "email")
+	@ValorUnico(domainClass = Autor.class, fieldName = "email")
 	private String email;
 
 	@NotEmpty

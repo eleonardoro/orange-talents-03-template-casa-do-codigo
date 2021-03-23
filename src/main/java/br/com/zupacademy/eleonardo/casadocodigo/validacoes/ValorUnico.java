@@ -10,18 +10,18 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Documented
-@Constraint(validatedBy = {UniqueValueValidator.class})
+@Constraint(validatedBy = { ValorUnicoValidator.class })
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UniqueValue {
+public @interface ValorUnico {
 
 	String message() default "{br.com.zupacademy.eleonardo.casadocodigo.beanvalidation.uniquevalue}";
-	
-	Class<?>[] groups() default { };
-	
-	Class<? extends Payload>[] payload() default { };
-	
+
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
+
 	String fieldName();
-	
+
 	Class<?> domainClass();
 }
