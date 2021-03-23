@@ -1,15 +1,9 @@
 package br.com.zupacademy.eleonardo.casadocodigo.livro;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,37 +32,11 @@ public class LivroController {
 	}
 
 	@PostMapping
-	public ResponseEntity<LivroResponse> cadastrar(@RequestBody @Valid LivroRequest form,
+	public ResponseEntity<LivroResponse> cadastrar(@RequestBody @Valid LivroRequest livroRequest,
 			UriComponentsBuilder uriBuilder) {
-		Livro livro = form.converter(categoriaRepository, autorRepository);
+		Livro livro = livroRequest.converter(categoriaRepository, autorRepository);
 		livroRepository.save(livro);
 
 		return ResponseEntity.ok().body(livro.converterParaLivroResponse());
-	}
-
-	@GetMapping
-	public ResponseEntity<List<LivroSimplesResponse>> listaTodosLivros() {
-		List<LivroSimplesResponse> livrosResponse = new ArrayList<>();
-
-		Iterable<Livro> livros = livroRepository.findAll();
-
-		livros.forEach(livro -> {
-			livrosResponse.add(new LivroSimplesResponse(livro));
-		});
-
-		return ResponseEntity.ok(livrosResponse);
-	}
-
-	@GetMapping("/{id}")
-	public ResponseEntity<LivroCompletoResponse> listaUmLivro(@PathVariable Long id) {
-
-		System.out.println("id: " + id);
-
-		Optional<Livro> livro = livroRepository.findById(id);
-
-		if (!livro.isPresent())
-			return ResponseEntity.notFound().build();
-
-		return ResponseEntity.ok().body(new LivroCompletoResponse(livro.get()));
 	}
 }
