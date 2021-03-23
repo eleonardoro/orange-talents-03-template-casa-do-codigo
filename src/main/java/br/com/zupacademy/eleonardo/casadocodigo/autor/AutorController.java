@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/autores")
@@ -22,8 +21,7 @@ public class AutorController {
 	}
 
 	@PostMapping
-	public ResponseEntity<AutorResponse> cadastrar(@RequestBody @Valid AutorRequest form,
-			UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<AutorResponse> cadastrar(@RequestBody @Valid AutorRequest form) {
 		Autor autor = form.converter();
 		autorRepository.save(autor);
 

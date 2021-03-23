@@ -57,7 +57,6 @@ public class LivroRequest {
 	public LivroRequest(@NotEmpty String titulo, @NotEmpty @Size(max = 500) String resumo, @NotEmpty String sumario,
 			@NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer paginas, @NotEmpty String isbn,
 			@NotNull @Future LocalDate dataPublicacao, @NotNull Long idCategoria, @NotNull Long idAutor) {
-		super();
 		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;
@@ -71,8 +70,6 @@ public class LivroRequest {
 
 	public Livro converter(CategoriaRepository categoriaRepository, AutorRepository autorRepository) {
 		Categoria categoria = categoriaRepository.findById(idCategoria).get();
-
-		System.out.println(categoria.toString());
 
 		Autor autor = autorRepository.findById(idAutor).get();
 

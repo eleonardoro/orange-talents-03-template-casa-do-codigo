@@ -66,10 +66,6 @@ public class Livro {
 		this.autor = autores;
 	}
 
-	public LivroResponse converterParaLivroResponse() {
-		return new LivroResponse(id, titulo, isbn, dataPublicacao);
-	}
-	
 	public Long getId() {
 		return id;
 	}

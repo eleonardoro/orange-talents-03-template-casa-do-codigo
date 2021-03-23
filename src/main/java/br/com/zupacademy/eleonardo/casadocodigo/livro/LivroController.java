@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.zupacademy.eleonardo.casadocodigo.autor.AutorRepository;
 import br.com.zupacademy.eleonardo.casadocodigo.categoria.CategoriaRepository;
@@ -32,11 +31,10 @@ public class LivroController {
 	}
 
 	@PostMapping
-	public ResponseEntity<LivroResponse> cadastrar(@RequestBody @Valid LivroRequest livroRequest,
-			UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<LivroResponse> cadastrar(@RequestBody @Valid LivroRequest livroRequest) {
 		Livro livro = livroRequest.converter(categoriaRepository, autorRepository);
 		livroRepository.save(livro);
 
-		return ResponseEntity.ok().body(livro.converterParaLivroResponse());
+		return ResponseEntity.ok().body(new LivroResponse(livro));
 	}
 }
