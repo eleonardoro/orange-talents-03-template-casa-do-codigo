@@ -2,12 +2,14 @@ package br.com.zupacademy.eleonardo.casadocodigo.livro;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,19 +43,32 @@ public class LivroController {
 		Livro livro = form.converter(categoriaRepository, autorRepository);
 		livroRepository.save(livro);
 
-		return ResponseEntity.ok().body(livro.converterToDTO());
+		return ResponseEntity.ok().body(livro.converterParaLivroResponse());
 	}
 
 	@GetMapping
-	public ResponseEntity<List<LivroSimpleResponse>> listaTodosLivros() {
-		List<LivroSimpleResponse> livrosResponse = new ArrayList<>();
+	public ResponseEntity<List<LivroSimplesResponse>> listaTodosLivros() {
+		List<LivroSimplesResponse> livrosResponse = new ArrayList<>();
 
 		Iterable<Livro> livros = livroRepository.findAll();
 
 		livros.forEach(livro -> {
-			livrosResponse.add(livro.parseLivroSimpleResponse());
+			livrosResponse.add(livro.converterParaLivroSimplesResponse());
 		});
 
 		return ResponseEntity.ok(livrosResponse);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<LivroCompletoResponse> listaUmLivro(@PathVariable Long id) {
+
+		System.out.println("id: " + id);
+
+		Optional<Livro> livro = livroRepository.findById(id);
+
+		if (!livro.isPresent())
+			return ResponseEntity.notFound().build();
+
+		return ResponseEntity.ok().body(livro.get().converterParaLivroCompletoResponse());
 	}
 }

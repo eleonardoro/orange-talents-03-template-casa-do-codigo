@@ -3,8 +3,10 @@ package br.com.zupacademy.eleonardo.casadocodigo.livro;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +46,7 @@ public class Livro {
 	@ManyToOne
 	private Categoria categoria;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Autor autor;
 
 	public Livro() {
@@ -64,7 +66,7 @@ public class Livro {
 		this.autor = autores;
 	}
 
-	public LivroResponse converterToDTO() {
+	public LivroResponse converterParaLivroResponse() {
 		return new LivroResponse(id, titulo, isbn, dataPublicacao);
 	}
 
@@ -105,7 +107,11 @@ public class Livro {
 		return true;
 	}
 
-	public LivroSimpleResponse parseLivroSimpleResponse() {
-		return new LivroSimpleResponse(id, titulo);
+	public LivroSimplesResponse converterParaLivroSimplesResponse() {
+		return new LivroSimplesResponse(id, titulo);
+	}
+
+	public LivroCompletoResponse converterParaLivroCompletoResponse() {
+		return new LivroCompletoResponse(id, titulo, resumo, sumario, preco, paginas, isbn, dataPublicacao, categoria, autor);
 	}
 }
