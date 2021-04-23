@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.zupacademy.eleonardo</groupId>
 	<artifactId>casa-do-codigo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>v1</version>
 	<name>casa-do-codigo</name>
 	<description>Implementando o desafio da Casa do Código</description>
 	
